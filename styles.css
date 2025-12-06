@@ -168,6 +168,27 @@ a {
     position: relative;
 }
 
+/* Logo Styling */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.nav-logo {
+    height: 55px;
+    /* Slightly larger */
+    width: auto;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
 .hero-content {
     z-index: 2;
     max-width: 900px;
@@ -178,29 +199,91 @@ a {
 .logos-strip {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 35px;
     flex-wrap: wrap;
 }
+
+.hero-template-img {
+    height: 100px;
+    /* Adjusted size */
+    width: auto;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-template-img.left {
+    padding: 0.5rem;
+}
+
 
 .badge {
     background: rgba(255, 255, 255, 0.2);
     padding: 5px 15px;
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.hero h1 {
-    font-size: 3rem;
-    line-height: 1.2;
-    margin-bottom: 10px;
-    font-family: 'Playfair Display', serif;
+/* Enhanced Highlight Badge with Rotating Glow Animation */
+.aicte-badge {
+    position: relative;
+    background: transparent;
+    color: #ff9f1c;
+    /* Orange Text */
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding: 12px 35px;
+    border-radius: 50px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(0, 46, 91, 0.5);
 }
 
-.hero h1 .highlight {
-    color: var(--secondary-color);
+/* Rotating Gradient Border */
+.aicte-badge::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300%;
+    padding-bottom: 300%;
+    height: 0;
+    background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, #ff9f1c 360deg);
+    animation: rotate-border 4s linear infinite;
+    z-index: -2;
+    border-radius: 50px;
 }
+
+
+/* Inner Background */
+.aicte-badge::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: #002e5b;
+    /* Blue Background */
+    border-radius: 50px;
+    z-index: -1;
+}
+
+@keyframes rotate-border {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 
 .hero h2 {
     font-size: 2rem;
