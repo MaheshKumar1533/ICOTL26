@@ -81,7 +81,10 @@ a {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* Center align items */
+    gap: 50px;
+    /* Space between logo and links */
     align-items: center;
     height: 100px;
     /* Increased height */
@@ -164,7 +167,6 @@ a {
     align-items: center;
     text-align: center;
     color: var(--white);
-    color: var(--white);
     padding-top: 100px;
     /* Navbar height */
     position: relative;
@@ -178,9 +180,19 @@ a {
     text-decoration: none;
 }
 
+.logo {
+    flex-shrink: 0;
+}
+
 .nav-logo {
     height: 85px;
-    /* Adjusted for larger navbar */
+    width: auto;
+    display: block;
+}
+
+.nav-logo-mobile {
+    display: none;
+    height: 70px;
     width: auto;
 }
 
@@ -189,6 +201,7 @@ a {
     font-weight: 700;
     color: var(--primary-color);
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 
 .hero-content {
@@ -606,6 +619,36 @@ footer {
 
     .hero h2 {
         font-size: 1.5rem;
+    }
+
+    /* Logo Switching Breakpoint */
+    @media (max-width: 1250px) {
+        .nav-container {
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: none;
+        }
+
+        .nav-logo-mobile {
+            display: block;
+        }
+
+        .nav-links {
+            gap: 20px;
+            /* Reduced gap */
+        }
+
+        .nav-links li a {
+            font-size: 0.9rem;
+            /* Smaller font */
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            /* Smaller logo text */
+        }
     }
 
     .footer-content {
