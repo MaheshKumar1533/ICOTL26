@@ -83,7 +83,8 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 100px;
+    /* Increased height */
 }
 
 .logo a {
@@ -163,7 +164,8 @@ a {
     align-items: center;
     text-align: center;
     color: var(--white);
-    padding-top: 70px;
+    color: var(--white);
+    padding-top: 100px;
     /* Navbar height */
     position: relative;
 }
@@ -177,8 +179,8 @@ a {
 }
 
 .nav-logo {
-    height: 55px;
-    /* Slightly larger */
+    height: 85px;
+    /* Adjusted for larger navbar */
     width: auto;
 }
 
@@ -562,8 +564,8 @@ footer {
     .nav-links {
         position: absolute;
         right: 0;
-        height: 92vh;
-        top: 8vh;
+        height: calc(100vh - 100px);
+        top: 100px;
         background: var(--white);
         display: flex;
         flex-direction: column;
