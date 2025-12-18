@@ -554,6 +554,58 @@ footer {
     height: auto;
 }
 
+/* Image Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 2rem;
+    transition: background 300ms ease;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox.animating {
+    background: rgba(0, 0, 0, 0);
+}
+
+.lightbox-img {
+    max-width: 92vw;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transition: top 300ms ease, left 300ms ease, width 300ms ease, height 300ms ease;
+}
+
+.lightbox.animating .lightbox-img {
+    position: fixed;
+    will-change: top, left, width, height;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    font-size: 32px;
+    line-height: 1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
