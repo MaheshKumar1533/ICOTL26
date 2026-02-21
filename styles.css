@@ -623,6 +623,127 @@ footer {
     background: rgba(0, 0, 0, 0.8);
 }
 
+/* Speakers Section */
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.speaker-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.speaker-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 46, 91, 0.2);
+}
+
+.speaker-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 3rem;
+    margin: 0;
+}
+
+.speaker-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.speaker-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.speaker-title {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.speaker-organization {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 3px;
+    line-height: 1.4;
+}
+
+.speaker-location {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.speaker-details {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.speaker-details strong {
+    color: var(--primary-color);
+    display: block;
+    margin-top: 8px;
+}
+
+.speaker-contact {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.speaker-email {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    word-break: break-all;
+}
+
+.speaker-email a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.speaker-email a:hover {
+    text-decoration: underline;
+}
+
+.speaker-link {
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.speaker-link a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.speaker-link a:hover {
+    text-decoration: underline;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -644,6 +765,10 @@ footer {
 
     .two-column-layout {
         grid-template-columns: 1fr;
+    }
+
+    .speakers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
 

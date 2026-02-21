@@ -1,4 +1,80 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Render Speakers from JSON
+    const renderSpeakers = () => {
+        const speakersData = JSON.parse(document.getElementById('speakersData').textContent);
+        const speakersContainer = document.getElementById('speakersContainer');
+        
+        if (!speakersContainer || !speakersData) return;
+
+        const getInitials = (name) => {
+            return name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+        };
+
+        speakersContainer.innerHTML = speakersData.map(speaker => {
+            const initials = getInitials(speaker.name);
+            const isPlaceholder = speaker.image.includes('placeholder');
+            
+            return `<div class="speaker-card">
+                <div class="speaker-image${isPlaceholder ? ' speaker-image-placeholder' : ''}" ${isPlaceholder ? `data-initials="${initials}"` : ''}>
+                    ${!isPlaceholder ? `<img src="${speaker.image}" alt="${speaker.name}" style="width:100%; height:100%; object-fit:cover; object-position: top;">` : ''}
+                </div>
+                <div class="speaker-content">
+                    <h3 class="speaker-name">${speaker.name}</h3>
+                    <p class="speaker-title">${speaker.title}</p>
+                    <p class="speaker-organization">${speaker.organization}</p>
+                    <p class="speaker-location"><i class="fas fa-map-marker-alt"></i> ${speaker.location}</p>
+                    
+                    <div class="speaker-details">
+                        ${speaker.keynoteTitle ? `<strong>Keynote: ${speaker.keynoteTitle}</strong>` : ''}
+                        ${speaker.date ? `<strong>Date:</strong> ${speaker.date}` : ''}
+                        ${speaker.time ? `<strong>Time:</strong> ${speaker.time}${speaker.timezone ? ' (' + speaker.timezone + ')' : ''}` : ''}
+                        ${speaker.duration ? `<strong>Duration:</strong> ${speaker.duration}` : ''}
+                        ${speaker.role ? `<strong>Role:</strong> ${speaker.role}` : ''}
+                        ${speaker.profile ? `<strong>Profile:</strong> ${speaker.profile}` : ''}
+                        ${speaker.notes ? `<strong>Notes:</strong> ${speaker.notes}` : ''}
+                    </div>
+
+                    <div class="speaker-contact">
+                        <div class="speaker-email">
+                            <strong>Email:</strong><br>
+                            <a href="mailto:${speaker.email}">${speaker.email}</a>
+                        </div>
+                        ${speaker.orcid ? `<div class="speaker-link">
+                            <strong><a href="${speaker.orcid}" target="_blank"><i class="fas fa-link"></i> ORCID Profile</a></strong>
+                        </div>` : ''}
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+
+        // Add animation to speaker cards
+        const speakerCards = document.querySelectorAll('.speaker-card');
+        speakerCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px) scale(0.95)';
+            card.style.transition = 'opacity 0.7s cubic-bezier(.2,.9,.2,1), transform 0.7s cubic-bezier(.2,.9,.2,1)';
+        });
+
+        // Use existing observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        speakerCards.forEach(card => observer.observe(card));
+    };
+
+    renderSpeakers();
+
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const links = document.querySelectorAll('.nav-links li');

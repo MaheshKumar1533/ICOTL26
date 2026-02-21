@@ -31,6 +31,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#speakers">Speakers</a></li>
                 <li><a href="#topics">Topics</a></li>
                 <li><a href="#committee">Committee</a></li>
                 <li><a href="#registration">Registration</a></li>
@@ -64,6 +65,80 @@
             </div>
         </div>
     </section>
+
+    <!-- Speakers Section -->
+    <section id="speakers" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Speakers</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="speakers-grid" id="speakersContainer"></div>
+        </div>
+    </section>
+
+    <!-- Speaker Data as JSON -->
+    <script type="application/json" id="speakersData">
+    [
+        {
+            "id": 0,
+            "name": "Prof. RAGE Uday Kiran",
+            "title": "Vice President",
+            "organization": "The University of Aizu",
+            "location": "USA",
+            "email": "udayrage@u-aizu.ac.jp",
+            "timezone": "IST",
+            "image": "images/0.jpg"
+        },
+        {
+            "id": 1,
+            "name": "Vasu Koduri",
+            "title": "Vice President",
+            "organization": "JP Morgan Chase",
+            "location": "USA",
+            "email": "vkoduri38905@ucumberlands.edu",
+            "orcid": "https://orcid.org/0009-0007-0377-3761",
+            "timezone": "IST",
+            "image": "images/speaker-placeholder.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Ghita Lazrek",
+            "title": "Founder and Chair of Fez ACM-W Chapter",
+            "organization": "Lab LIASSE, ENSA, Sidi Mohamed Ben Abdellah University",
+            "location": "Fez, Morocco",
+            "email": "ghita.lazrek@usmba.ac.ma",
+            "image": "images/2.png"
+        },
+        {
+            "id": 4,
+            "name": "Prof Srinath Doss",
+            "title": "Dean, FET",
+            "organization": "Botho University",
+            "location": "Botswana",
+            "email": "srinath.doss@bothouniversity.ac.bw",
+            "image": "images/4.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Dr. P R Anisha",
+            "title": "Professor, Department of CSE",
+            "organization": "Stanley College of Engineering and Technology for Women",
+            "location": "Hyderabad, India",
+            "email": "pranisha@stanley.edu.in",
+            "image": "images/3.jpeg"
+        },
+        {
+            "id": 5,
+            "name": "Dr. Kishor Kumar Reddy C",
+            "title": "Professor, Department of CSE",
+            "organization": "Stanley College of Engineering and Technology for Women",
+            "location": "Hyderabad, India",
+            "email": "ckishorkumar@stanley.edu.in",
+            "image": "images/5.png"
+        }
+    ]
+    </script>
 
     <!-- About Section -->
     <section id="about" class="section">
@@ -229,11 +304,11 @@
                     <ul class="dates-list">
                         <li>
                             <span class="date-label">Manuscript Submission</span>
-                            <span class="date-val">20-02-2026</span>
+                            <span class="date-val">25-02-2026</span>
                         </li>
                         <li>
                             <span class="date-label">Notification for Acceptance</span>
-                            <span class="date-val">25-02-2026</span>
+                            <span class="date-val">28-02-2026</span>
                         </li>
                         <li>
                             <span class="date-label">Camera-Ready Paper Submission</span>
