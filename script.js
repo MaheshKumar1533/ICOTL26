@@ -33,16 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${speaker.profile ? `<strong>Profile:</strong> ${speaker.profile}` : ''}
                         ${speaker.notes ? `<strong>Notes:</strong> ${speaker.notes}` : ''}
                     </div>
-
-                    <div class="speaker-contact">
-                        <div class="speaker-email">
-                            <strong>Email:</strong><br>
-                            <a href="mailto:${speaker.email}">${speaker.email}</a>
-                        </div>
-                        ${speaker.orcid ? `<div class="speaker-link">
-                            <strong><a href="${speaker.orcid}" target="_blank"><i class="fas fa-link"></i> ORCID Profile</a></strong>
-                        </div>` : ''}
-                    </div>
                 </div>
             </div>`;
         }).join('');
