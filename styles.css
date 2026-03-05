@@ -855,3 +855,112 @@ footer {
         text-align: center;
     }
 }
+
+/* Base PPT Notification Styles */
+.ppt-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--white);
+    padding: 15px 25px 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 9999;
+    border-left: 5px solid var(--secondary-color);
+    animation: slideInRight 0.5s ease-out;
+}
+
+.ppt-notification-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ppt-icon {
+    font-size: 2.5rem;
+    color: #d24726; /* PowerPoint color */
+}
+
+.ppt-text h4 {
+    margin: 0 0 5px;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.ppt-text p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.ppt-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.ppt-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+}
+
+.ppt-close:hover {
+    color: var(--text-color);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile responsive for PPT Notification */
+@media (max-width: 600px) {
+    .ppt-notification {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 0;
+        border-left: none;
+        border-top: 5px solid var(--secondary-color);
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .ppt-notification-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .ppt-btn {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .ppt-close {
+        top: 10px;
+        right: 15px;
+    }
+}
